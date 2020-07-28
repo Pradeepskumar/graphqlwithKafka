@@ -20,7 +20,7 @@ public class ConsumerService {
     System.out.println(String.format("Message recieved -> %s", message));
   }
 
-  @KafkaListener(topics = "Example_Topic_21", groupId = "group_json", containerFactory = "userKafkaListener")
+  @KafkaListener(topics = "Example_Topic_JSON", groupId = "group_json", containerFactory = "userKafkaListener")
   public void consume(User user) {
     Person person = new Person(user.getId(),user.getName(),user.getAge());
     graphQLService.loadDataIntoHSQL(person);
